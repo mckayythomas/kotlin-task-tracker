@@ -84,7 +84,7 @@ fun getTasks() {
         }
     }
 
-    tasks.forEachIndexed() { index, task ->
+    tasks.forEachIndexed { index, task ->
         println("${index + 1}: ${task.name} | Due: ${task.dueDate} | ${if (!task.completed) "Incomplete" else "Complete"}")
     }
     println("Press Any Key to Continue...")
@@ -94,7 +94,7 @@ fun getTasks() {
 // Deleting task
 fun deleteTask() {
     println("Task number to delete:")
-    val deletedTaskIndex = readLine()?.toIntOrNull()
+    val deletedTaskIndex = readlnOrNull()?.toIntOrNull()
 
     if (deletedTaskIndex != null) {
         // Get tasks
@@ -191,7 +191,7 @@ fun getCompleted() {
         }
     }
 
-    tasks.forEachIndexed() { index, task ->
+    tasks.forEachIndexed { index, task ->
         if (task.completed) println("${index + 1}: ${task.name} | Due: ${task.dueDate} | Completed")
     }
     println("Press Any Key to Continue...")
