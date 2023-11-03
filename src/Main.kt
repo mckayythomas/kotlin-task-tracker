@@ -1,14 +1,10 @@
 package src
 
 import java.io.File
-import java.text.DateFormat
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
-import java.util.Date
 
 fun main() {
-    val userChoice: Int? = null
-
     // Loop for running program until done
     while (true) {
         // print menu
@@ -38,7 +34,7 @@ fun main() {
 }
 
 // Write to file function adding task
-fun addTask(): Unit {
+fun addTask() {
     val dateFormatter: DateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
 
     println("Enter the task name:")
@@ -49,7 +45,7 @@ fun addTask(): Unit {
         taskName = readln()
     }
 
-    var validDate: Boolean = false
+    var validDate = false
 
     println("Enter task Due Date (dd-MM-yyyy):")
     var dateInput = readln()
@@ -69,11 +65,11 @@ fun addTask(): Unit {
 
     val newTask = Task(taskName, taskDate)
     // Write task to file
-    val file = File("C:\\Users\\mckay\\IdeaProjects\\kotlin-task-tracker\\src\\tasks.txt").appendText("${newTask.name},${newTask.dueDate},${newTask.completed}\n")
+    File("C:\\Users\\mckay\\IdeaProjects\\kotlin-task-tracker\\src\\tasks.txt").appendText("${newTask.name},${newTask.dueDate},${newTask.completed}\n")
 }
 
 // Read File function Viewing tasks
-fun getTasks(): Unit {
+fun getTasks() {
     val tasks = mutableListOf<Task>()
     val file = File("C:\\Users\\mckay\\IdeaProjects\\kotlin-task-tracker\\src\\tasks.txt")
     file.bufferedReader().useLines { lines ->
@@ -96,7 +92,7 @@ fun getTasks(): Unit {
 }
 
 // Deleting task
-fun deleteTask(): Unit {
+fun deleteTask() {
     println("Task number to delete:")
     val deletedTaskIndex = readLine()?.toIntOrNull()
 
@@ -180,7 +176,7 @@ fun markCompleted() {
 
 
 // Reading completed Tasks
-fun getCompleted(): Unit {
+fun getCompleted() {
     val tasks = mutableListOf<Task>()
     val file = File("C:\\Users\\mckay\\IdeaProjects\\kotlin-task-tracker\\src\\tasks.txt")
     file.bufferedReader().useLines { lines ->
