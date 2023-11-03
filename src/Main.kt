@@ -138,6 +138,7 @@ fun deleteTask() {
 // Completing task
 fun markCompleted() {
     // Get input
+    println("Enter the completed task Number:")
     val completedTask = readln().toIntOrNull()
 
     // Get tasks
@@ -171,6 +172,10 @@ fun markCompleted() {
             println("Enter any key to continue...")
             readln()
         }
+    } else {
+        println("Please enter a valid task number")
+        println("Enter any key to continue...")
+        readln()
     }
 }
 
